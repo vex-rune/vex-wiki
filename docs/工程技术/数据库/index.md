@@ -1,6 +1,6 @@
 ---
 title: 数据库
-description: MySQL、Redis、Oracle 与 SQL
+description: MySQL、PostgreSQL、Redis、Oracle 与 SQL
 weight: 20
 ---
 
@@ -13,6 +13,7 @@ weight: 20
 | 数据库 | 说明 |
 |--------|------|
 | [MySQL](MySQL/) | 关系型数据库 |
+| [PostgreSQL](PostgreSQL/) | 关系型数据库（向量/时序扩展） |
 | [Oracle](Oracle/) | Oracle数据库 |
 | [SQL](SQL/) | SQL查询基础 |
 
