@@ -38,7 +38,14 @@ mkdocs.log
 *.pyc
 *.egg-info/
 
-# Generated files
+# 默认忽略 demo / 临时产物中的 HTML/CSS/JS
 *.html
 *.css
 *.js
+
+# 但以下源码 HTML/CSS 须被跟踪：
+#   overrides/main.html       - Material 主题 custom_dir
+#   docs/stylesheets/extra.css - mkdocs.yml extra_css 引用
+# （gitignore 优先级：后面的 ! 规则覆盖前面的 * 规则）
+!/overrides/*.html
+!/docs/stylesheets/*.css

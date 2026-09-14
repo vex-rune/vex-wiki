@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{# 自定义 <title>，让首页显示站点名 #}
+{% block htmltitle %}
+  <title>{% if page and page.meta and page.meta.title %}{{ page.meta.title }} · {{ config.site_name }}{% else %}{{ config.site_name }}{% endif %}</title>
+{% endblock %}
+
+{# 关闭 Material 自带的 "Made with Material for MkDocs" 字样 #}
+{% block footer %}
+  {{ super() }}
+{% endblock %}

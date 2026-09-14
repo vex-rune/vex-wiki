@@ -1,0 +1,42 @@
+/* ============================================================
+ * VEX Wiki · Material 主题自定义样式
+ * ========================================================== */
+
+/* 1. 全局字体与排版微调 */
+:root {
+  --md-text-font: "Noto Sans SC", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* 2. 卡片网格在首页更紧凑 */
+.md-typeset .grid.cards > ul > li {
+  border-radius: .55rem;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(0,0,0,.12);
+}
+
+/* 3. 文章内容最大宽度（Material 默认略窄） */
+.md-grid {
+  max-width: 65rem;
+}
+
+/* 4. 代码块圆角与内边距 */
+.md-typeset pre > code {
+  border-radius: 8px;
+  padding: .9rem 1.1rem;
+}
+
+/* 5. 暗色模式背景更柔和 */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0f1115;
+  --md-default-bg-color--light: #1a1d23;
+}
+
+/* 6. admonition 加左侧色条 */
+.md-typeset .admonition {
+  border-left-width: 4px;
+}
