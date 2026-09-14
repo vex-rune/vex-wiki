@@ -1,9 +1,9 @@
-name: 🚀 Deploy to Aliyun OSS 
+name: 🚀 Deploy to Aliyun OSS
 
 on:
-#  push:
-#    branches:
-#      - main
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -14,47 +14,53 @@ jobs:
       - name: 📦 拉取代码
         uses: actions/checkout@v4
 
-      - name: 🐍 配置Python
+      - name: 🐍 配置 Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: pip
 
-      - name: 📥 安装MkDocs
-        run: pip install mkdocs mkdocs-material mkdocs-nav-weight
+      - name: 📥 安装 MkDocs + Material
+        run: pip install -r requirements.txt
 
       - name: 🏗️ 构建静态网站
-        run: mkdocs build
+        run: mkdocs build --strict
 
-      # ✅ 你指定的 阿里云官方一键安装脚本
-      - name: 📁 官方一键安装 ossutil
+      # 官方一键安装 ossutil
+      - name: 📁 安装 ossutil
         run: |
           sudo -v ; curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
           ossutil --version
 
-      - name: 🔑 配置OSS凭证
+      - name: 🔑 配置 OSS 凭证
         run: |
           ossutil config -e oss-cn-shenzhen.aliyuncs.com \
             -i ${{ secrets.ALIYUN_ACCESS_KEY_ID }} \
             -k ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }} \
             -L CH
 
-      - name: 🗑️ 清空OSS旧文件
+      - name: 🗑️ 清空 OSS 旧文件
         run: ossutil rm -r oss://vexrune-wike/ --include "*" -f
 
-      - name: ☁️ 上传 HTML（设置正确网页类型）
+      - name: ☁️ 上传 HTML
         run: |
-          ossutil cp site/ oss://vexrune-wike/ -r -f --acl public-read --meta "Content-Type:text/html; charset=utf-8" --include "*.html"
+          ossutil cp site/ oss://vexrune-wike/ -r -f --acl public-read \
+            --meta "Content-Type:text/html; charset=utf-8" --include "*.html"
 
-      - name: ☁️ 上传 CSS（样式）
+      - name: ☁️ 上传 CSS
         run: |
-          ossutil cp site/ oss://vexrune-wike/ -r -f --acl public-read --meta "Content-Type:text/css" --include "*.css"
+          ossutil cp site/ oss://vexrune-wike/ -r -f --acl public-read \
+            --meta "Content-Type:text/css" --include "*.css"
 
-      - name: ☁️ 上传 JS（脚本）
+      - name: ☁️ 上传 JS
         run: |
-          ossutil cp site/ oss://vexrune-wike/ -r -f --acl public-read --meta "Content-Type:application/javascript" --include "*.js"
+          ossutil cp site/ oss://vexrune-wike/ -r -f --acl public-read \
+            --meta "Content-Type:application/javascript" --include "*.js"
 
-      - name: ☁️ 上传图片、字体等其他文件
+      - name: ☁️ 上传其他资源
         run: |
-          ossutil cp site/ oss://vexrune-wike/ -r -f --acl public-read --exclude "*.html" --exclude "*.css" --exclude "*.js"
+          ossutil cp site/ oss://vexrune-wike/ -r -f --acl public-read \
+            --exclude "*.html" --exclude "*.css" --exclude "*.js"
+
       - name: 🎉 部署成功
         run: echo "✅ 网站正常访问：https://wiki.vexrune.top"

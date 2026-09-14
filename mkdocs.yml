@@ -1,57 +1,107 @@
-site_name: Wiki
-site_description: Blog
+site_name: VEX Wiki
+site_description: 雷鸣 (Luke) 的个人 Wiki 知识库 · 搞软件，耍 AI，啥新鲜整啥
+site_author: vex-rune
 site_url: https://wiki.vexrune.top
+site_dir: ./site
+docs_dir: ./docs
+copyright: Copyright © 2026 VEX · <a href="https://vexrune.top/" target="_blank" rel="noopener">vexrune.top</a>
 
 theme:
-  name: slate
+  name: material
+  language: zh
   custom_dir: overrides
   favicon: assets/favicon.svg
-  navigation_depth: 3
-  highlightjs: true
-  hljs_languages:
-    - java
-    - python
-    - yaml
-    - javascript
-    - sql
-    - xml
+  logo: assets/logo.svg
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+  features:
+    # 导航
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - navigation.tracking
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.prune
+    - toc.follow
+    # 搜索
+    - search.suggest
+    - search.highlight
+    - search.share
+    # 内容
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - content.action.view
+    - content.tooltips
+    - content.footnote.tooltips
+    - content.icons
+    - content.links
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到暗黑模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到明亮模式
 
 strict: false
 
-docs_dir: ./docs
-
-extra_dirs: [./public]
-
-site_dir: ./site
-
 markdown_extensions:
   # 基础扩展
-  - abbr                    # 缩写
-  - admonition             # 警告框
-  - attr_list              # 属性列表
-  - def_list               # 定义列表
-  - footnotes              # 脚注
-  - md_in_html             # HTML中的Markdown
-  - tables                 # 表格
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
   - toc:
       permalink: true
       toc_depth: 3
-  - meta                   # 元数据
+  - meta
 
   # PyMdown 扩展
-  - pymdownx.betterem:     # 改进的强调
+  - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.caret         # 插入符号
-  - pymdownx.details       # 详情折叠
-  - pymdownx.highlight:    # 代码高亮
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
-  - pymdownx.inlinehilite  # 行内代码高亮
-  - pymdownx.keys          # 键盘按键
-  - pymdownx.mark          # 标记
-  - pymdownx.smartsymbols  # 智能符号
-  - pymdownx.snippets      # 代码片段
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
 plugins:
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
@@ -59,17 +109,11 @@ plugins:
         - en
         - zh
   - mkdocs-nav-weight:
-      # 当为true时，章节名称将使用其页面的title，而不是文件夹名称。例如，你可能有一个名为 的文件夹，但想让该部分的名称为 。设置该参数以实现这种行为。
       section_renamed: true
-      # 用于index.md页面的weight值，以确保它始终在文件夹中排在首位。文件夹中的所有其他页面都应具有大于此值的weight值（以便它们在index.md页面之后列出）。
       index_weight: -10
-      # 控制当在 Markdown 元数据中检测到无效值时是否发送Warning警告。
       warning: true
-      # 默认情况下，页面按权重值从低到高排序。将此值设置为true将按从高到低的顺序排序。
       reverse: false
-      # 一个选项，用于控制是否应将headless页面包含在nav.pages中，该属性供一些插件使用，例如：mkdocs-pdf-export-plugin。
       headless_included: false
-      # 默认页面权重值，用于未指定权重值的页面。
       default_page_weight: 0
 
 extra_css:
@@ -80,12 +124,15 @@ extra_javascript: []
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/fomalhaut-m
+      link: https://github.com/vex-rune
       name: GitHub
     - icon: fontawesome/brands/git-alt
-      link: https://gitee.com/Fomalhaut_luke
+      link: https://gitee.com/vex-rune
       name: Gitee
     - icon: fontawesome/brands/bilibili
       link: https://space.bilibili.com/32121230
       name: Bilibili
-
+    - icon: fontawesome/solid/globe
+      link: https://vexrune.top/
+      name: 主页
+  generator: false

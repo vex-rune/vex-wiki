@@ -1,55 +1,178 @@
 ---
-title: Wiki
-description: 个人知识沉淀与技术笔记
+title: 你好，我是雷鸣
+description: VEX / Luke 的个人 Wiki 知识库 · 搞软件，耍 AI，啥新鲜整啥
 weight: 10
 ---
 
-# 你好，这里是 Luke 的知识库
+# 你好，我是雷鸣
 
-一个普通程序员的工作记录，技术踩坑、学习心得、读书笔记，全在这儿了。
+<p style="font-size:1.15rem;opacity:.85;margin-top:-.5rem">
+搞软件，耍 AI，啥新鲜整啥… 捣鼓实用小工具，不整花架子… 写代码图个乐呵，随心造… 莫马达~
+</p>
 
 ---
 
 ## 关于我
 
-- 从业十余年，主攻 Java 后端
-- 技术栈：Java / Python / Dart，写过微服务，搞过 AI，也折腾过 ESP32 物联网
-- 正在探索 AI 工程化、大模型应用
+<div class="grid cards" markdown>
 
-技术转型这条路走得不轻松，电气工程转行过来，全靠持续学习一路打怪升级。Spring Boot、MySQL、Redis、MongoDB、Docker 这些都是日常打交道的老朋友了。
+-   :material-server-outline:{ .lg .middle } **后端开发**
 
-最近在玩大模型，Spring AI 调通了，AI Agent 也在搞，RAG 落地中。
+    ---
+
+    Java 微服务、AWS 云服务、Datadog 监控运维
+
+    从单体到 Spring Cloud 微服务一路踩过来，常年跟 JVM 性能调优死磕。
+
+-   :material-robot-outline:{ .lg .middle } **AI 工程化探索**
+
+    ---
+
+    Spring AI、RAG、AI Agent、Function Calling
+
+    自研 [Vex-Owl](https://github.com/vex-rune/vex-owl) 智能体，多轮重构跑通了，
+    SSE 流式对话、工具调用、思维链可视化、Token 统计全栈实现。
+
+-   :material-transit-connection-variant:{ .lg .middle } **电气工程转型**
+
+    ---
+
+    工业自动化到互联网后端的跨界之路
+
+    从电气工程转行 Java 后端，全靠持续学习一路打怪升级。
+
+-   :material-printer-3d:{ .lg .middle } **3D 打印**
+
+    ---
+
+    拓竹 A1、Autodesk Fusion，纯粹玩玩
+
+    折腾点小模型、外壳、治具；玩为主，不量产。
+
+-   :material-chip:{ .lg .middle } **ESP32 IoT 探索**
+
+    ---
+
+    ESP32 开发板、传感器、MQTT，想搞点东西
+
+    基于 ESP32-S3 搞了 [Vex-IoTBox](https://github.com/vex-rune/vex-iotbox) 物联网小盒子，
+    自组网通信、移动端控制、云端采集与可视化跑通了。
+
+</div>
 
 ---
 
-## 随手记
+## 小打小闹
 
-知识库按内容用途整理为以下几类：
+<div class="grid cards" markdown>
 
-| 分类 | 内容 |
-|------|------|
-| [博客与阅读](博客与阅读/) | Blog、读书笔记与个人思考 |
-| [学习与职业](学习与职业/) | 产品经理、项目管理与提示词工程 |
-| [工程技术](工程技术/) | 软件、数据库、运维与嵌入式 |
-| [创意设计](创意设计/) | Blender、AE 与视觉创作 |
-| [内容创作](内容创作/) | 小说创作体系与个人作品 |
+-   :material-microscope:{ .lg .middle } **Vex MSA 材料检测**
+
+    ---
+
+    面向材料质检实验室的一体化桌面工作台
+
+    [查看 →](https://vexrune.top/product/msa)
+
+-   :material-access-point:{ .lg .middle } **Vex 云物联**
+
+    ---
+
+    自组网的物联网监控告警平台
+
+    [查看 →](https://vexrune.top/product/iot)
+
+-   :material-grid:{ .lg .middle } **Vex Glyph 字模生成器**
+
+    ---
+
+    ASCII / 汉字 / 图片点阵字模生成器
+
+    [查看 →](https://vexrune.top/tools/oled-font)
+
+-   :material-book-multiple-outline:{ .lg .middle } **个人 Wiki 知识库**
+
+    ---
+
+    基于 MkDocs Material 的个人 Wiki 平台，支持标签分类与快速访问
+
+    [查看 →](https://wiki.vexrune.top/)
+
+-   :material-owl:{ .lg .middle } **Owl 智能体**
+
+    ---
+
+    自主决策的 AI Agent，执行多步骤任务
+
+    [查看 →](https://github.com/vex-rune/vex-owl)
+
+</div>
 
 ---
 
-## 最近在折腾什么
+## 博客分类
 
-### ESP32 物联网固件
+<div class="grid cards" markdown>
 
-基于 ESP32-S3 开发了灯光控制、电表采集、门禁管控等多场景固件。WiFi 配网、MQTT 通信、外设驱动统一封装，软硬件联调跑通了，后续继续规范化和稳定性优化。
+-   :material-laptop:{ .lg .middle } **软件技术笔记**
 
-### AI 后端架构
+    ---
 
-自研 AI 助手 Vex-Owl，多轮重构后跑起来了。SSE 流式对话、工具调用、思维链可视化、Token 统计都上了。向量数据库方案落地 PostgreSQL+pgvector，记忆检索场景跑通。
+    Java、Spring Boot、AI Agent、Flutter 等学习记录
 
-### 个人站点改版
+    [进入 →](工程技术/软件/)
 
-`vexrune.top` 改版升级，工程架构优化了一遍，接入了前端监控（Datadog RUM），视觉也重新设计了。不过 Datadog 免费版限制太多，后续准备切到 Prometheus+Grafana 自建。
+-   :material-database:{ .lg .middle } **数据库技术**
 
-### 服务器环境
+    ---
 
-从零搭了一套中间件：Nginx、MQTT、Nacos、PostgreSQL，后续 AI 服务和物联网项目都跑在这上面。
+    MySQL、Redis、MongoDB、Milvus 向量数据库
+
+    [进入 →](工程技术/数据库/)
+
+-   :material-server-network:{ .lg .middle } **运维与云原生**
+
+    ---
+
+    Docker、ELK、GitLab CI/CD、AWS 部署实践
+
+    [进入 →](工程技术/运维技术/)
+
+-   :material-clipboard-check-outline:{ .lg .middle } **项目管理**
+
+    ---
+
+    PMP 认证知识、敏捷开发实践
+
+    [进入 →](学习与职业/项目管理/)
+
+-   :material-cube-outline:{ .lg .middle } **3D 建模探索**
+
+    ---
+
+    Blender、Ae 动画、Autodesk Fusion 建模
+
+    [进入 →](创意设计/3D建模/)
+
+</div>
+
+---
+
+## 社交媒体
+
+<div class="grid" markdown>
+
+- **GitHub**：[vex-rune](https://github.com/vex-rune)
+- **Gitee**：[vex-rune](https://gitee.com/vex-rune)
+- **抖音**：[__fomalhaut__](https://www.douyin.com/user/__fomalhaut__)
+- **B站**：[32121230](https://space.bilibili.com/32121230)
+- **个人主页**：[vexrune.top](https://vexrune.top/)
+- **Wiki 知识库**：[wiki.vexrune.top](https://wiki.vexrune.top/)
+
+</div>
+
+---
+
+!!! tip "本站技术栈"
+    本 Wiki 基于 **MkDocs + Material 主题** 构建，开启了即时加载、深色/浅色切换、中文分词搜索、Mermaid 图、KaTeX 公式、社交卡片等全套功能。
+    源码托管在 [GitHub](https://github.com/vex-rune/vex-wiki)，CI/CD 自动部署到阿里云 OSS。

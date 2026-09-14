@@ -1,5 +1,4 @@
 mkdocs>=1.6
-mkdocs-ivory>=0.4.6
+mkdocs-material>=9.5
 mkdocs-nav-weight>=0.3.0
-pymdown-extensions
-fontawesome
+pymdown-extensions>=10.7
